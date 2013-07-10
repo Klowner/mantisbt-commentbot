@@ -24,7 +24,23 @@ Mantis's main permission controls, this isn't a huge deal since CommentBot is on
  5. Call the URL specified in the Access URL field from whatever script you'd like to post a comment. 
     The Access URL expects three parameters.
     
-    ```secret_key``` - This must match the secret key that CommentBot is configured to use.
-    ```bug_id``` - The Mantis bug id that the comment will be posted to.
-    ```message``` - URLEncoded message to use as the comment body.
+ * ```secret_key``` This must match the secret key that CommentBot is configured to use.
+
+ * ```bug_id``` The Mantis bug id that the comment will be posted to.
+
+ * ```message``` URLEncoded message to use as the comment body.
     
+
+## Example Script
+
+```bash
+#!/bin/bash
+
+URL=http://supersite.com/mantis/plugin.php?CommentBot/post
+TICKET_ID=000042
+SECRET_KEY=veryverysecretkey
+MESSAGE="Mark provided fix for this ticket in commit 4bf9a771a5"
+MESSAGE="$(perl -MURI::Escape -e 'print uri_escape($ARGV[0]);' "$MESSAGE")"
+
+curl $URL -dbug_id=$TICKET_ID -dsecret_key=$SECRET_KEY -dmessage=$MESSAGE
+````
