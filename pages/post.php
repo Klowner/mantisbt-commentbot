@@ -4,7 +4,6 @@ require_once('bug_api.php');
 require_once('bugnote_api.php');
 require_once('user_api.php');
 
-#$f_bug_id = gpc_get_int('bug_id');
 $user_id = user_get_id_by_name(plugin_config_get('username'));
 $secret_key = plugin_config_get('secret_key');
 

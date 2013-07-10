@@ -25,6 +25,12 @@ print_manage_menu();
 	</td>
 </tr>
 
+<tr <?php echo helper_alternate_class() ?>>
+	<td class="category">Access URL</td>
+	<td class="center">
+		 <?php echo ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?page=CommentBot/post" ?>
+	</td>
+</tr>
 
 
 <tr>
@@ -33,12 +39,11 @@ print_manage_menu();
 	</td>
 </tr>
 
+
 </table>
 </form>
 
 
 <?php
-echo plugin_config_get('secret_key');
-
 html_page_bottom();
 ?>
