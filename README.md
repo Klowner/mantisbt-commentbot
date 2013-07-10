@@ -22,7 +22,7 @@ Mantis's main permission controls, this isn't a huge deal since CommentBot is on
  3. Enter the username created in step 1, this will be the user that CommentBot posts under
  4. Enter a custom secret key, or leave blank and a random one will be generated for you
  5. Call the URL specified in the Access URL field from whatever script you'd like to post a comment. 
-    The Access URL expects three parameters.
+    The Access URL expects the following three arguments...
     
  * ```secret_key``` This must match the secret key that CommentBot is configured to use.
 
