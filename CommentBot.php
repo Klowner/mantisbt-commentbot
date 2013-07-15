@@ -7,7 +7,7 @@ class CommentBotPlugin extends MantisPlugin {
 		$this->description = "Automated bugticket commenting hook";
 		$this->page = 'config';
 
-		$this->version = '1.0';
+		$this->version = '1.1';
 		$this->requires = array(
 			'MantisCore' => '1.2.0',
 		);
