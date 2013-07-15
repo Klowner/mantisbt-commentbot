@@ -38,15 +38,15 @@ print_manage_menu();
 <tr <?php echo helper_alternate_class() ?>>
 	<td class="category">Log comment event in ticket history</td>
 	<td class="center">
-		<input type="checkbox" name="log_history" <?php check_checked($conf_log_history, false) ?> />
+		<input type="checkbox" name="log_history" <?php check_checked($conf_log_history, TRUE) ?> />
 	</td>
 </tr>
 
 
 <tr <?php echo helper_alternate_class() ?>>
-	<td class="category">Send email notification on comment</td>
+	<td class="category">Send email notifications on comment</td>
 	<td class="center">
-		<input type="checkbox" name="send_mail" <?php check_checked($conf_send_mail, false) ?> />
+		<input type="checkbox" name="send_mail" <?php check_checked($conf_send_mail, TRUE) ?> />
 	</td>
 </tr>
 
