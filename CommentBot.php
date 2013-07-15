@@ -28,7 +28,9 @@ class CommentBotPlugin extends MantisPlugin {
 	function config() {
 		return array(
 			'username' => '',
-			'secret_key' => ""
+			'secret_key' => "",
+			'send_mail' => False,
+			'log_history' => False
 		);
 	}
 

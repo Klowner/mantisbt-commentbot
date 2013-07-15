@@ -2,6 +2,9 @@
 auth_reauthenticate();
 access_ensure_global_level(config_get('manage_plugin_threshold'));
 
+$conf_log_history = plugin_config_get("log_history");
+$conf_send_mail = plugin_config_get("send_mail");
+
 html_page_top('CommentBot');
 
 print_manage_menu();
@@ -29,6 +32,21 @@ print_manage_menu();
 	<td class="category">Access URL</td>
 	<td class="center">
 		 <?php echo ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?page=CommentBot/post" ?>
+	</td>
+</tr>
+
+<tr <?php echo helper_alternate_class() ?>>
+	<td class="category">Log comment event in ticket history</td>
+	<td class="center">
+		<input type="checkbox" name="log_history" <?php check_checked($conf_log_history, false) ?> />
+	</td>
+</tr>
+
+
+<tr <?php echo helper_alternate_class() ?>>
+	<td class="category">Send email notification on comment</td>
+	<td class="center">
+		<input type="checkbox" name="send_mail" <?php check_checked($conf_send_mail, false) ?> />
 	</td>
 </tr>
 

@@ -6,6 +6,8 @@ require_once('user_api.php');
 
 $user_id = user_get_id_by_name(plugin_config_get('username'));
 $secret_key = plugin_config_get('secret_key');
+$send_mail = plugin_config_get('send_mail');
+$log_history = plugin_config_get('log_history');
 
 $f_bug_id = gpc_get_int('bug_id');
 $f_secret_key = gpc_get_string('secret_key');
@@ -14,7 +16,7 @@ $f_message = gpc_get_string('message');
 if ($secret_key == $f_secret_key) {
 	$t_bug = bug_get($f_bug_id, true);
 	if ($t_bug) {
-		bugnote_add($f_bug_id, $f_message, '0:00', false, BUGNOTE, '', $user_id, false, false);
+		bugnote_add($f_bug_id, $f_message, '0:00', false, BUGNOTE, '', $user_id, $send_mail, $log_history);
 	}
 }
 
