@@ -4,17 +4,17 @@ require_once(config_get('class_path') . 'MantisPlugin.class.php');
 class CommentBotPlugin extends MantisPlugin {
 	function register() {
 		$this->name = "CommentBot";
-		$this->description = "Robot that comments on things";
+		$this->description = "Automated bugticket commenting hook";
 		$this->page = 'config';
 
-		$this->version = '0.1';
+		$this->version = '1.0';
 		$this->requires = array(
 			'MantisCore' => '1.2.0',
 		);
 
 		$this->author = "Mark Riedesel";
 		$this->contact = "mark@klowner.com";
-		$this->url = "";
+		$this->url = "https://github.com/Klowner/mantisbt-commentbot";
 	}
 
 	function events() {
