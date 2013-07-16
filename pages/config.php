@@ -2,6 +2,7 @@
 auth_reauthenticate();
 access_ensure_global_level(config_get('manage_plugin_threshold'));
 
+$conf_add_to_monitoring = plugin_config_get("add_to_monitoring");
 $conf_log_history = plugin_config_get("log_history");
 $conf_send_mail = plugin_config_get("send_mail");
 
@@ -32,6 +33,13 @@ print_manage_menu();
 	<td class="category">Access URL</td>
 	<td class="center">
 		 <?php echo ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?page=CommentBot/post" ?>
+	</td>
+</tr>
+
+<tr <?php echo helper_alternate_class() ?>>
+	<td class="category">Add specified user to monitoring</td>
+	<td class="center">
+		<input type="checkbox" name="add_to_monitoring" <?php check_checked($conf_add_to_monitoring, TRUE) ?> />
 	</td>
 </tr>
 
