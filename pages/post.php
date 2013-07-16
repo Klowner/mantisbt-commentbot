@@ -1,5 +1,6 @@
 <?php
 require_once('core.php');
+require_once('authentication_api.php');
 require_once('bug_api.php');
 require_once('bugnote_api.php');
 require_once('user_api.php');
@@ -19,7 +20,13 @@ $t_user_id = user_get_id_by_email( $f_monitor );
 
 if ($secret_key == $f_secret_key) {
 	$t_bug = bug_get($f_bug_id, true);
+
 	if ($t_bug) {
+		// Mantis will abort after adding the bug note (but before updating history or sending an e-mail)
+		// if the script is not authenticated like this.
+		auth_attempt_script_login(plugin_config_get('username'));
+
+		// Add the specified user to the monitoring list, if applicable
 		if ($add_to_monitoring && $t_user_id) {
 			bug_monitor($f_bug_id, $t_user_id);
 			sleep(1);
