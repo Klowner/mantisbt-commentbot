@@ -1,7 +1,7 @@
 mantisbt-commentbot
 ===================
 
-Automated comment posting plugin for MantisBT
+Automated comment posting plugin for [MantisBT](https://www.mantisbt.org/)
 
 
 Installation
@@ -21,15 +21,15 @@ Mantis's main permission controls, this isn't a huge deal since CommentBot is on
  2. Go to the CommentBot configuration section in Mantis's Manage Plugins page
  3. Enter the username created in step 1, this will be the user that CommentBot posts under
  4. Enter a custom secret key, or leave blank and a random one will be generated for you
- 5. Call the URL specified in the Access URL field from whatever script you'd like to post a comment. 
+ 5. Call the URL specified in the Access URL field from whatever script you'd like to post a comment.
     The Access URL expects the following three arguments...
-    
+
  * ```secret_key``` This must match the secret key that CommentBot is configured to use.
 
  * ```bug_id``` The Mantis bug id that the comment will be posted to.
 
  * ```message``` URLEncoded message to use as the comment body.
-    
+
 
 ## Example Script
 

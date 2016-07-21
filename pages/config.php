@@ -57,25 +57,23 @@ print_manage_menu();
 <tr <?php echo helper_alternate_class() ?>>
 	<td class="category">Add specified user to monitoring</td>
 	<td class="center">
-		<input type="checkbox" name="add_to_monitoring" <?php check_checked($conf_add_to_monitoring, TRUE) ?> />
+		<input type="checkbox" name="add_to_monitoring" <?php check_checked((bool) $conf_add_to_monitoring, TRUE) ?> />
 	</td>
 </tr>
 
 <tr <?php echo helper_alternate_class() ?>>
 	<td class="category">Log comment event in ticket history</td>
 	<td class="center">
-		<input type="checkbox" name="log_history" <?php check_checked($conf_log_history, TRUE) ?> />
+		<input type="checkbox" name="log_history" <?php check_checked((bool) $conf_log_history, TRUE) ?> />
 	</td>
 </tr>
-
 
 <tr <?php echo helper_alternate_class() ?>>
 	<td class="category">Send email notifications on comment</td>
 	<td class="center">
-		<input type="checkbox" name="send_mail" <?php check_checked($conf_send_mail, TRUE) ?> />
+		<input type="checkbox" name="send_mail" <?php check_checked((bool) $conf_send_mail, TRUE) ?> />
 	</td>
 </tr>
-
 
 <tr>
 	<td class="center" colspan="3">
@@ -83,10 +81,8 @@ print_manage_menu();
 	</td>
 </tr>
 
-
 </table>
 </form>
-
 
 <?php
 html_page_bottom();

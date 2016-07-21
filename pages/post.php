@@ -17,11 +17,10 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-require_once('core.php');
-require_once('authentication_api.php');
-require_once('bug_api.php');
-require_once('bugnote_api.php');
-require_once('user_api.php');
+require_api('authentication_api.php');
+require_api('bug_api.php');
+require_api('bugnote_api.php');
+require_api('user_api.php');
 
 $user_id = user_get_id_by_name(plugin_config_get('username'));
 $secret_key = plugin_config_get('secret_key');
@@ -38,7 +37,7 @@ if ($f_monitor) {
 	$t_user_id = user_get_id_by_email( $f_monitor );
 }
 
-if ($secret_key == $f_secret_key) {
+if ($secret_key === $f_secret_key) {
 	$t_bug = bug_get($f_bug_id, true);
 
 	if ($t_bug) {
@@ -51,7 +50,20 @@ if ($secret_key == $f_secret_key) {
 			bug_monitor($f_bug_id, $t_user_id);
 		}
 
-		bugnote_add($f_bug_id, $f_message, '0:00', false, BUGNOTE, '', $user_id, $send_mail, $log_history);
+		bugnote_add(
+			$f_bug_id,
+			$f_message,
+			'0:00',
+			false,
+			BUGNOTE,
+			'',
+			$user_id,
+			$send_email,
+			0,
+			0,
+			false,
+			$log_history
+		);
 	}
 }
 
